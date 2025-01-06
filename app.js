@@ -39,13 +39,21 @@ let shoppingItems = [
     date: new Date(),
     isSettled: true,
   },
+  {
+    title: 'Picnic',
+    amount: 450,
+    date: new Date(),
+    isSettled: true,
+  },
 ];
 
 function showShoppingItems(shoppingItems) {
   const shoppingItemsElement = document.getElementById('shopping_items');
   let shoppingListElements = '';
   for (let shoppingItem of shoppingItems) {
-    let shoppingItemElement = `<div>
+    let shoppingItemElement = `<div  class="${
+      shoppingItem.isSettled ? 'settled' : ''
+    }">
         <div><h3>${shoppingItem.title}</h3>
             <time>${shoppingItem.date}</time>
         </div>

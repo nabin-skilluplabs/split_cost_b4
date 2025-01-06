@@ -16,4 +16,15 @@
   margin-bottom: 1px;
   padding: 10px;
   display: flex;
+  justify-content: space-between;
+}
+
+#shopping_items h3 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.settled {
+  background-color: #a8a8a8;
+  opacity: 0.6;
 }
