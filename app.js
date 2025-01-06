@@ -123,4 +123,5 @@ function showUnsettledAmount(unsettledAmount) {
 
 showShoppingItems(shoppingItems);
 showFriends(friends);
+totalAmount = getTotalAmount(shoppingItems);
 showUnsettledAmount(totalAmount / friends.length);
