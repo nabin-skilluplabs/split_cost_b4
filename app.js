@@ -53,9 +53,40 @@ submitButtonElement.addEventListener('click', handleForm);
 function handleForm(event) {
   event.preventDefault();
 
+  const title = document.getElementById('title').value;
+  const amount = document.getElementById('amount').value;
+  if (!title || !amount) {
+    return;
+  }
+  let shoppingItem = {
+    title,
+    amount: parseFloat(amount),
+    date: new Date(),
+    isSettled: false,
+  };
+  console.log({ shoppingItem });
   console.log('Submit button clicked');
+  shoppingItems.unshift(shoppingItem);
+  showShoppingItems(shoppingItems);
+  clearFormElements();
+  let total = getTotalAmount(shoppingItems);
+  showUnsettledAmount(total / friends.length);
 }
 
+function getTotalAmount(shoppingItems) {
+  const total = shoppingItems.reduce((total, item) => {
+    if (!item.isSettled) {
+      return total + item.amount;
+    }
+    return total;
+  }, 0);
+  return total;
+}
+
+function clearFormElements() {
+  document.getElementById('title').value = '';
+  document.getElementById('amount').value = '';
+}
 function showShoppingItems(shoppingItems) {
   const shoppingItemsElement = document.getElementById('shopping_items');
   let shoppingListElements = '';
