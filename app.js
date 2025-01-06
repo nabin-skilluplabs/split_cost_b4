@@ -47,6 +47,15 @@ let shoppingItems = [
   },
 ];
 
+const submitButtonElement = document.querySelector("input[type='submit']");
+submitButtonElement.addEventListener('click', handleForm);
+
+function handleForm(event) {
+  event.preventDefault();
+
+  console.log('Submit button clicked');
+}
+
 function showShoppingItems(shoppingItems) {
   const shoppingItemsElement = document.getElementById('shopping_items');
   let shoppingListElements = '';
