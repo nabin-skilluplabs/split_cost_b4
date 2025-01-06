@@ -10,3 +10,10 @@
   background-color: #4d4d4d;
   border-radius: 50%;
 }
+
+#shopping_items > div {
+  border: 1px solid #3d3d3d;
+  margin-bottom: 1px;
+  padding: 10px;
+  display: flex;
+}
