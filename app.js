@@ -121,6 +121,13 @@ function showUnsettledAmount(unsettledAmount) {
   unsettledAmountElement.innerHTML = unsettledAmount;
 }
 
+const settleNowBtn = document.getElementById('settle_now_btn');
+settleNowBtn.addEventListener('click', handleSettleNow);
+
+function handleSettleNow() {
+  console.log('Settling Now');
+}
+
 showShoppingItems(shoppingItems);
 showFriends(friends);
 totalAmount = getTotalAmount(shoppingItems);
