@@ -64,13 +64,11 @@ function handleForm(event) {
     date: new Date(),
     isSettled: false,
   };
-  console.log({ shoppingItem });
-  console.log('Submit button clicked');
+
   shoppingItems.unshift(shoppingItem);
-  showShoppingItems(shoppingItems);
   clearFormElements();
-  let total = getTotalAmount(shoppingItems);
-  showUnsettledAmount(total / friends.length);
+
+  refreshData(shoppingItems);
 }
 
 function getTotalAmount(shoppingItems) {
@@ -129,13 +127,15 @@ function handleSettleNow() {
     item.isSettled = true;
     return item;
   });
+  refreshData(shoppingItems);
+}
+
+function refreshData(shoppingItems) {
   showShoppingItems(shoppingItems);
-  totalAmount = getTotalAmount(shoppingItems);
+  const totalAmount = getTotalAmount(shoppingItems);
   let unsettledAmount = totalAmount && totalAmount / friends.length;
   showUnsettledAmount(unsettledAmount);
 }
 
-showShoppingItems(shoppingItems);
 showFriends(friends);
-totalAmount = getTotalAmount(shoppingItems);
-showUnsettledAmount(totalAmount / friends.length);
+refreshData(shoppingItems);
